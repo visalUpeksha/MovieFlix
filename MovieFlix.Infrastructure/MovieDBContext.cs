@@ -16,6 +16,24 @@ namespace MovieFlix.Infrastructure
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Member>()
+                .HasOne<Rental>(s => s.Rental)
+                .WithMany(r => r.Members)
+                .HasForeignKey(s => s.RentalId);
+
+            modelBuilder.Entity<MovieRental>()
+                .HasKey(g => new { g.RentalId, g.MovieId });
+
+            modelBuilder.Entity<Rental>()
+                .Property(p => p.TotalCost)
+                .HasColumnType("decimal(18,2)");
+        }
+
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<MovieRental> MovieRentals { get; set; }
     }
 }

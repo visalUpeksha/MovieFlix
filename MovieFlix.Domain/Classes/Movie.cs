@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 namespace MovieFlix.Domain.Classes
 {
     public class Movie
-    {
-        public int ID { get; set; }
+    { 
+        public int MovieId { get; set; }
         public string MovieName { get; set; } = string.Empty;
-        public decimal Cost { get; set; }
+        public decimal RentalCost { get; set; }
+        public int RentalDuration { get; set; }
+
+
+        public IList<MovieRental> MovieRentals  { get; set; }
     }
 }
