@@ -5,6 +5,12 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieFlix.Domain", "MovieFlix.Domain\MovieFlix.Domain.csproj", "{161EE1E6-6887-4FCA-97B0-FA1B544F6637}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieFlix.Application", "MovieFlix.Application\MovieFlix.Application.csproj", "{B7CFEBE8-7717-4DEB-8A59-AF1742C9461D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieFlix.Infrastructure", "MovieFlix.Infrastructure\MovieFlix.Infrastructure.csproj", "{9078B185-0721-4C2F-8C16-F7149E9D1247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieFlix.API", "MovieFlix.API\MovieFlix.API.csproj", "{97FDC0E1-079E-48B6-A46C-BD2EF123A10A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{161EE1E6-6887-4FCA-97B0-FA1B544F6637}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{161EE1E6-6887-4FCA-97B0-FA1B544F6637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{161EE1E6-6887-4FCA-97B0-FA1B544F6637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CFEBE8-7717-4DEB-8A59-AF1742C9461D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CFEBE8-7717-4DEB-8A59-AF1742C9461D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CFEBE8-7717-4DEB-8A59-AF1742C9461D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CFEBE8-7717-4DEB-8A59-AF1742C9461D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9078B185-0721-4C2F-8C16-F7149E9D1247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9078B185-0721-4C2F-8C16-F7149E9D1247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9078B185-0721-4C2F-8C16-F7149E9D1247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9078B185-0721-4C2F-8C16-F7149E9D1247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97FDC0E1-079E-48B6-A46C-BD2EF123A10A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FDC0E1-079E-48B6-A46C-BD2EF123A10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FDC0E1-079E-48B6-A46C-BD2EF123A10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FDC0E1-079E-48B6-A46C-BD2EF123A10A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
