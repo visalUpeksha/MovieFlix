@@ -1,8 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using MovieFlix.Application.Classes;
 using MovieFlix.Application.Interfaces;
+using MovieFlix.Authentication.Classes;
+using MovieFlix.Authentication.Interfaces;
 using MovieFlix.Infrastructure;
 using MovieFlix.Infrastructure.Classes;
+
+Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +18,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//JWT Authentication
+var jwtConfig = new JwtConfiguration(configuration);
+builder.Services.AddSingleton<IJwtConfiguration>(jwtConfig);
+builder.Services.AddTransient<ITokenService, TokenService>();
+builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddJwtAuthentication(jwtConfig);
+
+
+//DB stuff
 builder.Services.AddDbContext<MovieDBContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
         b => b.MigrationsAssembly("MovieFlix.API")));
 builder.Services.AddScoped<IMovieService, MovieService>();
@@ -30,6 +43,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//JWT Authentication
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

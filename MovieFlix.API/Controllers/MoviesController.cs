@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MovieFlix.Application.Interfaces;
 using MovieFlix.Domain.Classes;
 
@@ -18,6 +19,7 @@ namespace MovieFlix.API.Controllers
         }
         // GET: api/<MoviesController>
         [HttpGet]
+        [Authorize]
         public ActionResult<List<Movie>> Get()
         {
             var moviesFromService = _service.GetAllMovies();
@@ -25,6 +27,7 @@ namespace MovieFlix.API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult<Movie> Post(Movie movie)
         {
             var moviesFromService = _service.CreateMovie(movie);
