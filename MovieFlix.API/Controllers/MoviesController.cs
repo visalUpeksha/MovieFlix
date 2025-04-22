@@ -18,12 +18,20 @@ namespace MovieFlix.API.Controllers
             _service = service;
         }
         // GET: api/<MoviesController>
+
         [HttpGet]
         [Authorize]
         public ActionResult<List<Movie>> Get()
         {
             var moviesFromService = _service.GetAllMovies();
             return Ok(moviesFromService);
+        }
+
+        [Authorize]
+        [HttpGet("{id}")]
+        public ActionResult<Movie> Get(int id)
+        {
+            return Ok(_service.GetMovie(id));
         }
 
         [HttpPost]
@@ -33,6 +41,7 @@ namespace MovieFlix.API.Controllers
             var moviesFromService = _service.CreateMovie(movie);
             return Ok(moviesFromService);
         }
+
 
     }
 }

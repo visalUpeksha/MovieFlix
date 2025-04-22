@@ -23,8 +23,16 @@ namespace MovieFlix.Infrastructure
                 .WithMany(r => r.Members)
                 .HasForeignKey(s => s.RentalId);
 
+            modelBuilder.Entity<Movie>()
+                .HasMany(m => m.MovieRentals)
+                .WithOne(mr => mr.Movie)
+                .HasForeignKey(mr => mr.MovieId)
+                .OnDelete(DeleteBehavior.Cascade); // Optional: Configure delete behavior
+
             modelBuilder.Entity<MovieRental>()
-                .HasKey(g => new { g.RentalId, g.MovieId });
+                .HasOne(mr => mr.Movie)
+                .WithMany(m => m.MovieRentals)
+                .HasForeignKey(mr => mr.MovieId);
 
             modelBuilder.Entity<Rental>()
                 .Property(p => p.TotalCost)

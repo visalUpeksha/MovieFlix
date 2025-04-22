@@ -18,14 +18,14 @@ namespace MovieFlix.Authentication.Classes
         }
         public string GetAuthorizationToken(Login login)
         {
-            var userIsAuthenticated = login.UserName == "admin" && login.Password == "admin";
+            var userIsAuthenticated = (login.UserName == "admin" || login.Email == "admin@admin.com") && login.Password == "admin";
 
             if (!userIsAuthenticated)
             {
                 return "";
             }
             var userId = "9999"; // Get user id from database
-            var email = "valentin.osidach@gmail.com"; // Get email from database
+            var email = "admin@admin.com"; // Get email from database
             var token = tokenService.GenerateToken(userId, email);
             return token;
         }

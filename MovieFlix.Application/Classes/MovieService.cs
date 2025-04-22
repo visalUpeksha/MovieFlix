@@ -26,5 +26,11 @@ namespace MovieFlix.Application.Classes
             var movies = _movieRepository.GetAllMovies();
             return movies;
         }
+
+        public Movie GetMovie(int id)
+        {
+            var movie = _movieRepository.GetMovie(id);
+            return movie;
+        }
     }
 }

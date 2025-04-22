@@ -14,6 +14,6 @@ namespace MovieFlix.Domain.Classes
         public int RentalDuration { get; set; }
 
 
-        public IList<MovieRental> MovieRentals  { get; set; }
+        public IList<MovieRental> MovieRentals  { get; set; } = new List<MovieRental>();
     }
 }

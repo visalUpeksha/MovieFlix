@@ -11,6 +11,7 @@ namespace MovieFlix.Application.Interfaces
     {
         List<Movie> GetAllMovies();
         Movie CreateMovie(Movie movie);
+        Movie GetMovie(int id);
 
     }
 }

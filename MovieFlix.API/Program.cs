@@ -8,10 +8,22 @@ using MovieFlix.Infrastructure.Classes;
 
 Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        builder => builder.WithOrigins("http://localhost:5173")
+                          .WithMethods("GET", "POST", "PUT", "DELETE")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader()
+                          .AllowCredentials());
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -41,11 +53,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
 
 //JWT Authentication
+
 app.UseAuthentication();
+app.UseCors("AllowReactApp");
 app.UseAuthorization();
+
 
 app.MapControllers();
 

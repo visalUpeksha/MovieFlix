@@ -29,5 +29,10 @@ namespace MovieFlix.Infrastructure.Classes
         {
             return _movieDBContext.Movies.ToList();
         }
+
+        public Movie GetMovie(int id)
+        {
+            return _movieDBContext.Movies.Single(x => x.MovieId == id);
+        }
     }
 }

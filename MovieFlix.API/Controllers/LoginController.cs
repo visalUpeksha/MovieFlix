@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using MovieFlix.Authentication.Interfaces;
 using MovieFlix.Domain.Classes;
 
@@ -16,6 +17,7 @@ namespace MovieFlix.API.Controllers
             authService = _authService;
         }
 
+        [EnableCors("AllowReactApp")]
         [HttpPost]
         public IActionResult Login([FromBody] Login user)
         {
