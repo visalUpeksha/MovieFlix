@@ -22,10 +22,11 @@ namespace MovieFlix.Authentication.Classes
         private readonly MovieDBContext _movieDBContext;
         private readonly IPasswordService _passwordService;
 
-        public AuthService(ITokenService _tokenService, MovieDBContext movieDBContext)
+        public AuthService(ITokenService _tokenService, MovieDBContext movieDBContext, IPasswordService passwordService)
         {
             tokenService = _tokenService;
             _movieDBContext = movieDBContext;
+            _passwordService = passwordService;
         }
         public async Task<string> GetAuthorizationToken(RegisterRequest request)
         {
