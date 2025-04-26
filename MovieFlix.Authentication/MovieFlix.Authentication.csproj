@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MovieFlix.Domain\MovieFlix.Domain.csproj" />
+    <ProjectReference Include="..\MovieFlix.Infrastructure\MovieFlix.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

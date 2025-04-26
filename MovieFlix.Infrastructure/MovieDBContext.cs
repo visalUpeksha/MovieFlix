@@ -43,5 +43,7 @@ namespace MovieFlix.Infrastructure
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<MovieRental> MovieRentals { get; set; }
+        public DbSet<User> Users { get; set; }
+
     }
 }

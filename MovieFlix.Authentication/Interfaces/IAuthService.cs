@@ -1,4 +1,6 @@
-﻿using MovieFlix.Domain.Classes;
+﻿using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Mvc;
+using MovieFlix.Domain.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ namespace MovieFlix.Authentication.Interfaces
 {
     public interface IAuthService
     {
-        string GetAuthorizationToken(Login login);
+        Task<string> GetAuthorizationToken(RegisterRequest login);
+        Task<string> Register(RegisterRequest request);
     }
 }

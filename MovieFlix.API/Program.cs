@@ -5,6 +5,7 @@ using MovieFlix.Authentication.Classes;
 using MovieFlix.Authentication.Interfaces;
 using MovieFlix.Infrastructure;
 using MovieFlix.Infrastructure.Classes;
+using MovieFlix.Infrastructure.Interfaces;
 
 Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
 
@@ -35,6 +36,7 @@ var jwtConfig = new JwtConfiguration(configuration);
 builder.Services.AddSingleton<IJwtConfiguration>(jwtConfig);
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<IPasswordService, PasswordService>();
 builder.Services.AddJwtAuthentication(jwtConfig);
 
 
